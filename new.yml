@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    region: ap-south-1
+    bucket_name: ram435
+  tasks:
+    - name: Create S3 bucket
+...

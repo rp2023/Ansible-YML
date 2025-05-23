@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - name: Create file
+    file:
+     path: /home/ansible/rahul.txt
+     state: touch
+...

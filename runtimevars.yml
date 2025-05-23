@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: install package
+    yum:
+     name: "{{package_name}}"
+     state: latest
+...
+
+### $ ansible-playbook <yml> --extra-vars package_name=httpd

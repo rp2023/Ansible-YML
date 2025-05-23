@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: check maven version
+    command: mvn --version
+    register: output
+    ignore_errors: yes
+
+  - name: print ouput 
+    debug:
+     var: output
+
+  - name: install maven
+    yum:
+     name: maven
+     state: latest
+    when: output.failed
+...

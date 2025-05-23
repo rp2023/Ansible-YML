@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+  - name: This is first task
+    command: dates
+    register: dates_output
+    ignore_errors: yes
+
+  - name: This is second task
+    debug: 
+     msg: "Second task executed..."    
+    when: dates_output.rc == 0
+
+  - name: this is third task
+    debug:
+     var: dates_output    
+...

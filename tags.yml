@@ -1,0 +1,24 @@
+---
+- hosts: webservers
+  become: true #use it if you need sudo priviliges
+  tasks:
+  - name: install httpd package
+    yum:
+     name: httpd
+     state: latest
+    tags:
+      - install
+  - name: copy index.html file
+    copy:
+     src: index.html
+     dest: /var/www/html/index.html
+    tags:
+       - copy
+  - name: start httpd server
+    service:
+     name: httpd
+     state: started
+    tags:
+     - start
+...
+

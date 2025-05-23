@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  become: true
+  vars:
+   package_name: maven
+  tasks:
+  - name: uninstall package
+    yum:
+     name: "{{package_name}}"
+  
+...

@@ -1,0 +1,8 @@
+---
+- host: all 
+  task: 
+  name: install java
+  yum:
+   name: java
+  state: latest
+...

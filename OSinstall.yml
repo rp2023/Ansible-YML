@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: install java in Red Hat family
+    yum:
+     name: java
+     state: latest
+    when: ansible_os_family == 'Red hat'
+
+  - name: install java in Debian family
+    apt:
+     name: java
+     state: latest
+    when: ansible_os_family == 'Debian'
+...

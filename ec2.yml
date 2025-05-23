@@ -1,0 +1,20 @@
+---
+- name: Launch EC2 instance
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Launch instance
+      amazon.aws.ec2_instance:
+        aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
+        aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
+        region: "ap-south-1"
+        image_id: "ami-08718895af4dfa033"
+        instance_type: "t2.micro"
+        key_name: "mavenkey.pem"
+        wait: yes
+      register: ec2
+
+    - name: Display instance details
+      debug:
+        msg: "Instance {{ ec2.instance_id }} launched"
+...

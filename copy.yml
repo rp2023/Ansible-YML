@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+  - name: copy content to file
+    copy: content="Hello World\n" dest="/home/ansible/rahul.txt"
+... 
