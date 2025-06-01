@@ -6,5 +6,5 @@
       copy:
         src: /home/ansible/vote.sh
         dest: /home/ansible/vote.sh
-        mode: '0755'
+        mode: '0755' #Executable permission
 ...
