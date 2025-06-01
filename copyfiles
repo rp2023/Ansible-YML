@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Copy script file from control node to all managed nodes
+      copy:
+        src: /home/ansible/vote.sh
+        dest: /home/ansible/vote.sh
+        mode: '0755'
+...
